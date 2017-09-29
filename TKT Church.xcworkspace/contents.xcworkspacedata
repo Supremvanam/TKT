@@ -4,6 +4,16 @@
    <FileRef
       location = "group:TKT Church.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:"
+      name = "Pods">
+      <FileRef
+         location = "group:Pods/Target Support Files/Pods-TKT Church/Pods-TKT Church.debug.xcconfig">
+      </FileRef>
+      <FileRef
+         location = "group:Pods/Target Support Files/Pods-TKT Church/Pods-TKT Church.release.xcconfig">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
