@@ -16,18 +16,16 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        phoneTextField.delegate = self
         viewStyle()
-//        UINavigationItem.setHidesBackButton(self)
         navigationItem.hidesBackButton = true;
+        
     }
 
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         sender.pulsate()
-     
-//        let alert = UIAlertController(title: "Phone number", message: "Is this your phone number? \n \(phoneTextField.text!)", preferredStyle: .alert)
-//        let action = UIAlertAction(title: "Yes", style: .default) { (UIAlertAction) in
-        
-//            PhoneAuthProvider.provider().verifyPhoneNumber(self.phoneTextField.text!) { (verificationID, error) in
+
         PhoneAuthProvider.provider().verifyPhoneNumber(self.phoneTextField.text!) { (verificationID, error) in
             if error != nil {
                 print("Error : \(String(describing: error?.localizedDescription))")
@@ -41,10 +39,15 @@ class LoginVC: UIViewController {
         }
                    print("Next button tapped")
         }
-//        let cancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
-//        alert.addAction(action)
-//        alert.addAction(cancel)
-//        alert.present(alert, animated: true, completion: nil)
+    
+    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let DestController = segue.destination as! AuthVC
+        DestController.infoLabelText = "We’ve sent  a verification code to \n \(phoneTextField.text!)\n\nPlease enter the code down here to Get Started"
+        
+    }
         
     func viewStyle() {
         phoneTextField.layer.cornerRadius = phoneTextField.frame.size.height/2
@@ -55,11 +58,20 @@ class LoginVC: UIViewController {
         
         view.setGradientBackground(colorOne: Colors.lightPurple, colorTwo: Colors.darkPurple)
     }
-        
-
-    }
-
     
+}
+
+extension LoginVC: UITextFieldDelegate {
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = "+91"
+    }
+    
+    //    func textViewDidBeginEditing(_ textView: UITextView) {
+//        textView.text = ""
+//        sendBtn.isEnabled = true
+//    }
+}
     
     
     

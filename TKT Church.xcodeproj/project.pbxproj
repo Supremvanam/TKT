@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B2EFBE2598E1F1A5CF56720 /* Pods_TKT_Church.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7644C66F8B6E1B97790872 /* Pods_TKT_Church.framework */; };
 		7C174F521F7D3BAC00199A34 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C174F511F7D3BAC00199A34 /* AuthVC.swift */; };
+		7C325BC11F7FDB3E0058A4CB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C325BC01F7FDB3D0058A4CB /* HomeVC.swift */; };
 		7C3DD8C01F7A5CBF00047853 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3DD8BF1F7A5CBF00047853 /* AppDelegate.swift */; };
 		7C3DD8C21F7A5CC000047853 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3DD8C11F7A5CC000047853 /* LoginVC.swift */; };
 		7C3DD8C51F7A5CC100047853 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3DD8C31F7A5CC100047853 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		260AEF3D2A78D5B264216EED /* Pods-TKT Church.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TKT Church.release.xcconfig"; path = "Pods/Target Support Files/Pods-TKT Church/Pods-TKT Church.release.xcconfig"; sourceTree = "<group>"; };
 		7C174F501F7D342900199A34 /* TKT Church.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TKT Church.entitlements"; sourceTree = "<group>"; };
 		7C174F511F7D3BAC00199A34 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		7C325BC01F7FDB3D0058A4CB /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		7C3DD8BC1F7A5CBF00047853 /* TKT Church.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TKT Church.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C3DD8BF1F7A5CBF00047853 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C3DD8C11F7A5CC000047853 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				7C3DD8C11F7A5CC000047853 /* LoginVC.swift */,
 				7C174F511F7D3BAC00199A34 /* AuthVC.swift */,
+				7C325BC01F7FDB3D0058A4CB /* HomeVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C5BD0481F7D071200230149 /* Constants.swift in Sources */,
+				7C325BC11F7FDB3E0058A4CB /* HomeVC.swift in Sources */,
 				7C3DD8C21F7A5CC000047853 /* LoginVC.swift in Sources */,
 				7C3DD8C81F7A5CC200047853 /* TKT_Church.xcdatamodeld in Sources */,
 				7C5BD0441F7CF7B700230149 /* UIView+Extension.swift in Sources */,

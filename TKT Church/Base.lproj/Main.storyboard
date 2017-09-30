@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rNJ-8p-PDL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0vU-Xs-aTm">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,7 @@
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="TKT_Church" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="LoginVC" customModule="TKT_Church" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,7 +80,7 @@
         <!--AuthVC-->
         <scene sceneID="Ut4-fE-oJS">
             <objects>
-                <viewController id="dvn-Bl-Uw5" customClass="AuthVC" customModule="TKT_Church" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthVC" id="dvn-Bl-Uw5" customClass="AuthVC" customModule="TKT_Church" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JYz-Ij-cUO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,19 +118,20 @@ Please enter the code down here to Get Started</string>
                         <viewLayoutGuide key="safeArea" id="iuf-1K-3QW"/>
                     </view>
                     <connections>
+                        <outlet property="infoLabel" destination="jAW-Gw-IpL" id="DYN-6R-wve"/>
                         <outlet property="nextButton" destination="t6K-3B-A37" id="nce-gP-hgg"/>
                         <outlet property="verifyTextField" destination="KfE-SD-qsw" id="5R3-mW-bMZ"/>
-                        <segue destination="Ior-IE-WyX" kind="show" identifier="logged" id="VWX-eR-5dA"/>
+                        <segue destination="0vU-Xs-aTm" kind="show" identifier="logged" id="VWX-eR-5dA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMp-tl-sj3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1013.0434782608696" y="138.58695652173915"/>
         </scene>
-        <!--View Controller-->
+        <!--HomeVC-->
         <scene sceneID="FxF-5x-f1B">
             <objects>
-                <viewController id="Ior-IE-WyX" sceneMemberID="viewController">
+                <viewController id="Ior-IE-WyX" customClass="HomeVC" customModule="TKT_Church" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AEy-FD-fGt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,14 +143,35 @@ Please enter the code down here to Get Started</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFo-Er-H5I">
+                                <rect key="frame" x="143" y="417" width="128" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="LogoutTappedWithSender:" destination="Ior-IE-WyX" eventType="touchUpInside" id="JRJ-Et-FTT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APu-nu-u6t">
+                                <rect key="frame" x="20" y="113" width="374" height="183"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="dsl-L6-jEA"/>
                     </view>
+                    <navigationItem key="navigationItem" id="g5i-U2-C4S"/>
+                    <connections>
+                        <outlet property="descLabel" destination="APu-nu-u6t" id="loT-8c-6Fr"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="logout" id="USA-El-W0f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQB-Oa-mV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772.4637681159422" y="138.58695652173915"/>
+            <point key="canvasLocation" x="1026.0869565217392" y="1060.5978260869565"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dxh-b6-mhT">
@@ -166,10 +189,31 @@ Please enter the code down here to Get Started</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wpd-P4-1YK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-687" y="139"/>
+            <point key="canvasLocation" x="-601" y="139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wb4-to-yAh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="0vU-Xs-aTm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PJf-gF-H0H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ior-IE-WyX" kind="relationship" relationship="rootViewController" id="0bo-dK-bbg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XNX-I4-E3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="123" y="1060"/>
         </scene>
     </scenes>
     <resources>
         <image name="next-btn" width="30" height="35"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="USA-El-W0f"/>
+    </inferredMetricsTieBreakers>
 </document>

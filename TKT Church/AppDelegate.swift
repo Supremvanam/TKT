@@ -22,6 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
+        if Auth.auth().currentUser == nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+            window?.makeKeyAndVisible()
+            window?.rootViewController?.present(loginVC, animated: true, completion: nil)
+        }
+        
         if #available(iOS 10,*) {
             UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { (success, error) in })
             application.registerForRemoteNotifications()

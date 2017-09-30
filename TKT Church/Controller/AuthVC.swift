@@ -12,17 +12,19 @@ import FirebaseAuth
 
 class AuthVC: UIViewController {
 
-    
+    @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var verifyTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
+    
+    var infoLabelText = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewStyle()
-//        UINavigationItem.setHidesBackButton(self)
         navigationItem.hidesBackButton = true;
         
+        infoLabel.text = infoLabelText
     }
     
     @IBAction func verifyButtonTapped(_ sender: UIButton) {
