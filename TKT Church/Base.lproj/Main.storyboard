@@ -12,6 +12,7 @@
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
             <string>AvenirNext-DemiBold</string>
+            <string>AvenirNext-Medium</string>
             <string>AvenirNext-Regular</string>
         </array>
     </customFonts>
@@ -133,45 +134,90 @@ Please enter the code down here to Get Started</string>
             <objects>
                 <viewController id="Ior-IE-WyX" customClass="HomeVC" customModule="TKT_Church" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AEy-FD-fGt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="2100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logged in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0l-nx-Ve1">
-                                <rect key="frame" x="20" y="327" width="374" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFo-Er-H5I">
-                                <rect key="frame" x="143" y="417" width="128" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="LogoutTappedWithSender:" destination="Ior-IE-WyX" eventType="touchUpInside" id="JRJ-Et-FTT"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APu-nu-u6t">
-                                <rect key="frame" x="20" y="113" width="374" height="183"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCB-7n-ILh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="2100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFQ-a6-iHv">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Working" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dH9-93-iHb">
+                                                <rect key="frame" x="72" y="1875" width="270" height="121"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25 DECEMBER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAB-ZF-93m">
+                                                <rect key="frame" x="8" y="30" width="238" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MONDAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDs-a1-3MF">
+                                                <rect key="frame" x="8" y="59" width="238" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="35"/>
+                                                <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BuC-F4-f1U">
+                                                <rect key="frame" x="372" y="56" width="34" height="43"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="logout-btn">
+                                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="logoutButtonTapped:" destination="Ior-IE-WyX" eventType="touchUpInside" id="Rrv-21-je9"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V18-ed-6W4">
+                                                <rect key="frame" x="10" y="125" width="394" height="350"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2100" id="K4C-GC-jov"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="UFQ-a6-iHv" firstAttribute="top" secondItem="MCB-7n-ILh" secondAttribute="top" id="51A-3r-1od"/>
+                                    <constraint firstAttribute="trailing" secondItem="UFQ-a6-iHv" secondAttribute="trailing" id="9Yr-q4-wMh"/>
+                                    <constraint firstItem="UFQ-a6-iHv" firstAttribute="leading" secondItem="MCB-7n-ILh" secondAttribute="leading" id="kcw-ne-CF7"/>
+                                    <constraint firstAttribute="bottom" secondItem="UFQ-a6-iHv" secondAttribute="bottom" id="tqH-TK-ybG"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="MCB-7n-ILh" firstAttribute="top" secondItem="AEy-FD-fGt" secondAttribute="top" id="2aP-lO-ec0"/>
+                            <constraint firstItem="dsl-L6-jEA" firstAttribute="bottom" secondItem="MCB-7n-ILh" secondAttribute="bottom" id="4jh-dl-cLW"/>
+                            <constraint firstItem="MCB-7n-ILh" firstAttribute="leading" secondItem="dsl-L6-jEA" secondAttribute="leading" id="Caf-js-6UE"/>
+                            <constraint firstItem="UFQ-a6-iHv" firstAttribute="width" secondItem="AEy-FD-fGt" secondAttribute="width" id="QqT-k8-c7h"/>
+                            <constraint firstItem="dsl-L6-jEA" firstAttribute="trailing" secondItem="MCB-7n-ILh" secondAttribute="trailing" id="YPe-6e-3up"/>
+                            <constraint firstItem="MCB-7n-ILh" firstAttribute="top" secondItem="AEy-FD-fGt" secondAttribute="top" id="ix7-GC-OAI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dsl-L6-jEA"/>
                     </view>
                     <navigationItem key="navigationItem" id="g5i-U2-C4S"/>
+                    <size key="freeformSize" width="414" height="2100"/>
                     <connections>
-                        <outlet property="descLabel" destination="APu-nu-u6t" id="loT-8c-6Fr"/>
+                        <outlet property="dateLabel" destination="aAB-ZF-93m" id="p9W-GO-hG6"/>
+                        <outlet property="greetView" destination="V18-ed-6W4" id="G2U-Yz-4W8"/>
+                        <outlet property="logoutBtn" destination="BuC-F4-f1U" id="JxV-Cf-HTY"/>
+                        <outlet property="weekLabel" destination="hDs-a1-3MF" id="mis-Dw-uXw"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="logout" id="USA-El-W0f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQB-Oa-mV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1026.0869565217392" y="1060.5978260869565"/>
+            <point key="canvasLocation" x="1011.5942028985507" y="1598.6413043478262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dxh-b6-mhT">
@@ -211,6 +257,7 @@ Please enter the code down here to Get Started</string>
         </scene>
     </scenes>
     <resources>
+        <image name="logout-btn" width="29" height="30"/>
         <image name="next-btn" width="30" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>

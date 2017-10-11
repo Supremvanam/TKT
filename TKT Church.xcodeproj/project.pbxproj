@@ -16,6 +16,7 @@
 		7C3DD8C81F7A5CC200047853 /* TKT_Church.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C3DD8C61F7A5CC200047853 /* TKT_Church.xcdatamodeld */; };
 		7C3DD8CA1F7A5CC200047853 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C3DD8C91F7A5CC200047853 /* Assets.xcassets */; };
 		7C3DD8CD1F7A5CC200047853 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3DD8CB1F7A5CC200047853 /* LaunchScreen.storyboard */; };
+		7C4418541F8E21C300D38AFA /* GreetViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4418531F8E21C300D38AFA /* GreetViewVC.swift */; };
 		7C5BD0411F7A790400230149 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C5BD0401F7A78F600230149 /* GoogleService-Info.plist */; };
 		7C5BD0441F7CF7B700230149 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5BD0431F7CF7B700230149 /* UIView+Extension.swift */; };
 		7C5BD0481F7D071200230149 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5BD0471F7D071200230149 /* Constants.swift */; };
@@ -35,6 +36,7 @@
 		7C3DD8C91F7A5CC200047853 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C3DD8CC1F7A5CC200047853 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C3DD8CE1F7A5CC200047853 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C4418531F8E21C300D38AFA /* GreetViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetViewVC.swift; sourceTree = "<group>"; };
 		7C5BD0401F7A78F600230149 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C5BD0431F7CF7B700230149 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		7C5BD0471F7D071200230149 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				7C5BD0471F7D071200230149 /* Constants.swift */,
 				7C5BD0491F7D10B400230149 /* UIButton+Extension.swift */,
 				7C174F501F7D342900199A34 /* TKT Church.entitlements */,
+				7C4418531F8E21C300D38AFA /* GreetViewVC.swift */,
 			);
 			path = "TKT Church";
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				7C5BD0481F7D071200230149 /* Constants.swift in Sources */,
 				7C325BC11F7FDB3E0058A4CB /* HomeVC.swift in Sources */,
+				7C4418541F8E21C300D38AFA /* GreetViewVC.swift in Sources */,
 				7C3DD8C21F7A5CC000047853 /* LoginVC.swift in Sources */,
 				7C3DD8C81F7A5CC200047853 /* TKT_Church.xcdatamodeld in Sources */,
 				7C5BD0441F7CF7B700230149 /* UIView+Extension.swift in Sources */,

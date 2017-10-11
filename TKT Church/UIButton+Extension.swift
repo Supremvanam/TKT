@@ -17,7 +17,7 @@ extension UIButton {
 //        let test2 = CABasicAnimation()
         pulse.duration = 0.5
         pulse.fromValue = 1.0
-        pulse.toValue = 0.95
+        pulse.toValue = 0.90
         pulse.autoreverses = true
 //        pulse.repeatDuration = 0.5
         pulse.repeatCount = 10
