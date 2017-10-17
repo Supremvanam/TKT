@@ -12,6 +12,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
             <string>AvenirNext-DemiBold</string>
             <string>AvenirNext-Medium</string>
             <string>AvenirNext-Regular</string>
@@ -246,17 +247,38 @@ Please enter the code down here to Get Started</string>
                                     <constraint firstAttribute="width" secondItem="aNG-kX-Hhx" secondAttribute="height" multiplier="16:9" id="muz-qL-K5m"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRAYER FOR VICTORIOUS LIVING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeB-LL-toi">
+                                <rect key="frame" x="20" y="261" width="374" height="27.333333333333314"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgD-NT-vg5">
+                                <rect key="frame" x="20" y="308.33333333333326" width="374" height="300.66666666666674"/>
+                                <string key="text">This is a dummy description. This is a dummy description. This is a dummy description. This is a dummy description. This is a dummy description. This is a dummy description. This is a dummy description. This is a dummy description. This is a dummy description. This is a dummy description. This is a dummy description. This is a dummy description. This is a dummy description. This is a dummy description. </string>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="aNG-kX-Hhx" firstAttribute="top" secondItem="fQ1-Xa-bMp" secondAttribute="top" id="287-y8-9m2"/>
                             <constraint firstItem="aNG-kX-Hhx" firstAttribute="leading" secondItem="fQ1-Xa-bMp" secondAttribute="leading" id="5At-ak-vdQ"/>
+                            <constraint firstItem="fQ1-Xa-bMp" firstAttribute="trailing" secondItem="sgD-NT-vg5" secondAttribute="trailing" constant="20" id="CdS-Or-XHg"/>
+                            <constraint firstItem="fQ1-Xa-bMp" firstAttribute="trailing" secondItem="KeB-LL-toi" secondAttribute="trailing" constant="20" id="DCK-0q-PVp"/>
                             <constraint firstItem="fQ1-Xa-bMp" firstAttribute="trailing" secondItem="aNG-kX-Hhx" secondAttribute="trailing" id="TYN-5E-LJo"/>
+                            <constraint firstItem="sgD-NT-vg5" firstAttribute="leading" secondItem="fQ1-Xa-bMp" secondAttribute="leading" constant="20" id="adU-ap-zq7"/>
+                            <constraint firstItem="KeB-LL-toi" firstAttribute="top" secondItem="aNG-kX-Hhx" secondAttribute="bottom" constant="8" id="tbN-iQ-8J0"/>
+                            <constraint firstItem="sgD-NT-vg5" firstAttribute="top" secondItem="KeB-LL-toi" secondAttribute="bottom" constant="20" id="tys-Iw-9kC"/>
+                            <constraint firstItem="KeB-LL-toi" firstAttribute="leading" secondItem="fQ1-Xa-bMp" secondAttribute="leading" constant="20" id="xTj-3p-vKl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQ1-Xa-bMp"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Live" image="live-btn" id="Dfa-Qw-YMO"/>
                     <connections>
+                        <outlet property="liveStreamDescription" destination="sgD-NT-vg5" id="UjL-Zh-9eB"/>
+                        <outlet property="liveStreamTitle" destination="KeB-LL-toi" id="l6P-lQ-1Jw"/>
                         <outlet property="videoPlayerView" destination="aNG-kX-Hhx" id="1eG-xu-UlJ"/>
                     </connections>
                 </viewController>

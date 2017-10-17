@@ -15,6 +15,9 @@ import FirebaseDatabase
 class LiveStreamVC: UIViewController {
  
     @IBOutlet weak var videoPlayerView: YouTubePlayerView!
+    @IBOutlet weak var liveStreamTitle: UILabel!
+    @IBOutlet weak var liveStreamDescription: UILabel!
+    
     
     let appDel = UIApplication.shared.delegate as! AppDelegate
 
@@ -22,7 +25,7 @@ class LiveStreamVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.setHorizontalGradientBackground(colorOne: Colors.white, colorTwo: Colors.black)
+//        view.setHorizontalGradientBackground(colorOne: Colors.white, colorTwo: Colors.black)
 
         let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
         let statusBarColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
@@ -37,13 +40,36 @@ class LiveStreamVC: UIViewController {
                 print("The Live URL Value is \(String(describing: value))")
                 self.LiveStreamSuccess(value: value as! String)
             } else {
-                print ("Value is not shown")
+                print ("Live stream url value is not shown")
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        appDel.ref.child("livetitle").observe(.value, with: { (snapshot) in
+            if let value = snapshot.value {
+                print("The Live URL Value is \(String(describing: value))")
+                self.liveStreamTitle.text = (value as! String)
+            } else {
+                print ("Title value is not shown")
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        appDel.ref.child("livedescription").observe(.value, with: { (snapshot) in
+            if let value = snapshot.value {
+                print("The Live URL Value is \(String(describing: value))")
+                self.liveStreamDescription.text = value as? String
+            } else {
+                print ("Description value not available")
             }
         }) { (error) in
             print(error.localizedDescription)
         }
     
     }
+    
     
     func LiveStreamSuccess(value: String) {
         
