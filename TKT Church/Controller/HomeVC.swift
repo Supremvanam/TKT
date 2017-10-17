@@ -16,10 +16,9 @@ class HomeVC: UIViewController {
     @IBOutlet weak var logoutBtn: UIButton!
     @IBOutlet weak var greetView: UIView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        greetView.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
         
         let date = Date()
         let calendar = Calendar.current
@@ -82,6 +81,10 @@ class HomeVC: UIViewController {
         dateLabel.text = "\(day) \(monthName)"
         weekLabel.text = "\(weekName)"
         
+//        greetView.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        greetView.layer.cornerRadius = 25
+        greetView.layer.masksToBounds = true
+        
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
@@ -95,7 +98,5 @@ class HomeVC: UIViewController {
         }
     }
 
-    
-    
     
 }

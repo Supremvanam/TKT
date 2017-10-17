@@ -56,7 +56,7 @@ class LoginVC: UIViewController {
         nextButton.layer.cornerRadius = nextButton.frame.size.height/2
         nextButton.layer.masksToBounds = true
         
-        view.setGradientBackground(colorOne: Colors.lightPurple, colorTwo: Colors.darkPurple)
+        view.setDiagonalGradientBackground(colorOne: Colors.lightPurple, colorTwo: Colors.darkPurple)
     }
     
 }
