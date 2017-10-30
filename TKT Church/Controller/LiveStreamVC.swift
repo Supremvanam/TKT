@@ -19,32 +19,17 @@ class LiveStreamVC: UIViewController {
     @IBOutlet weak var liveStreamDescription: UILabel!
     
     
+    
     let appDel = UIApplication.shared.delegate as! AppDelegate
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        view.setHorizontalGradientBackground(colorOne: Colors.white, colorTwo: Colors.black)
-
+   
         let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
         let statusBarColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
         statusBarView.backgroundColor = statusBarColor
         view.addSubview(statusBarView)
-    
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        
-        appDel.ref.child("liveurl").observe(.value, with: { (snapshot) in
-            if let value = snapshot.value {
-                print("The Live URL Value is \(String(describing: value))")
-                self.LiveStreamSuccess(value: value as! String)
-            } else {
-                print ("Live stream url value is not shown")
-            }
-        }) { (error) in
-            print(error.localizedDescription)
-        }
         
         appDel.ref.child("livetitle").observe(.value, with: { (snapshot) in
             if let value = snapshot.value {
@@ -67,6 +52,25 @@ class LiveStreamVC: UIViewController {
         }) { (error) in
             print(error.localizedDescription)
         }
+    
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        
+        appDel.ref.child("liveurl").observe(.value, with: { (snapshot) in
+            if let value = snapshot.value {
+                print("The Live URL Value is \(String(describing: value))")
+                
+                self.LiveStreamSuccess(value: value as! String)
+                
+            } else {
+                print ("Some error")
+                }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+       
     
     }
     

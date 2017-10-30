@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 import FirebaseAuth
 
 class HomeVC: UIViewController {
@@ -15,10 +16,28 @@ class HomeVC: UIViewController {
     @IBOutlet weak var weekLabel: UILabel!
     @IBOutlet weak var logoutBtn: UIButton!
     @IBOutlet weak var greetView: UIView!
+    @IBOutlet weak var greetImage: UIImageView!
     
+    @IBOutlet weak var audioPlayerView: UIView!
+    @IBOutlet weak var playPauseBtn: UIButton!
+    @IBOutlet weak var sermonSlider: UISlider!
+    
+    
+    @IBOutlet weak var goalView: UIView!
+    
+    @IBOutlet weak var confessionView: UIView!
+    
+    @IBOutlet weak var streakView: UIView!
+    
+    var player: AVAudioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        let statusBarColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+        statusBarView.backgroundColor = statusBarColor
+        view.addSubview(statusBarView)
         
         let date = Date()
         let calendar = Calendar.current
@@ -81,11 +100,105 @@ class HomeVC: UIViewController {
         dateLabel.text = "\(day) \(monthName)"
         weekLabel.text = "\(weekName)"
         
-//        greetView.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
-        greetView.layer.cornerRadius = 25
-        greetView.layer.masksToBounds = true
+        do {
+            let audioPath = Bundle.main.path(forResource: "aug-ps-raj", ofType: "mp3")
+            try player = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath!) as URL)
+        } catch {
+            // Catch the error
+        }
+        
+        sermonSlider.maximumValue = Float(player.duration)
+        print("The Sermon duration is \(player.duration)")
+        
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(SermonSliderCustomise), userInfo: nil, repeats: true)
+        
+        ApplyCornerRadius(viewName: greetView)
+        ApplyCornerRadius(viewName: audioPlayerView)
+        ApplyCornerRadius(viewName: goalView)
+        ApplyCornerRadius(viewName: confessionView)
+        ApplyCornerRadius(viewName: streakView)
+        ApplyCornerRadius(viewName: logoutBtn)
+        
+        audioPlayerView.setHorizontalGradientBackground(colorOne: Colors.lightBlue, colorTwo: Colors.darkBlue)
+        goalView.setHorizontalGradientBackground(colorOne: Colors.lightGreen, colorTwo: Colors.darkGreen)
+        streakView.setDiagonalGradientBackground(colorOne: Colors.lightPurple, colorTwo: Colors.darkPurple)
+        logoutBtn.setHorizontalGradientBackground(colorOne: Colors.darkRed, colorTwo: Colors.lightRed)
         
     }
+    
+    func ApplyCornerRadius(viewName: UIView!) {
+        viewName.layer.cornerRadius = 25
+        viewName.layer.masksToBounds = true
+    }
+    
+    // Sermon Player
+    @IBAction func PlayPauseAudioButton(_ sender: UIButton) {
+        
+        if sender.currentImage == #imageLiteral(resourceName: "play-btn") {
+            sender.setImage(#imageLiteral(resourceName: "pause-btn"), for: .normal)
+            
+            player.prepareToPlay()
+            player.play()
+            
+            let session = AVAudioSession.sharedInstance()
+
+            do {
+                try session.setCategory(AVAudioSessionCategoryPlayback)
+            } catch {
+                // Catch the error
+            }
+
+        } else {
+            sender.setImage(#imageLiteral(resourceName: "play-btn"), for: .normal)
+            print("This works")
+            player.pause()
+        }
+    }
+    
+    @IBAction func SermonSliderChanged(_ sender: AnyObject) {
+        player.stop()
+        playPauseBtn.setImage(#imageLiteral(resourceName: "play-btn"), for: .normal)
+        player.currentTime = TimeInterval(sermonSlider.value)
+        player.prepareToPlay()
+    }
+    
+    @objc func SermonSliderCustomise() {
+        
+        sermonSlider.value = Float(player.currentTime)
+    }
+    
+    // Goals View
+    
+    @IBAction func PrayForAnHourButton(_ sender: UIButton) {
+        if sender.currentImage == #imageLiteral(resourceName: "goal-btn") {
+            sender.setImage(#imageLiteral(resourceName: "goal-tick"), for: .normal)
+        } else {
+            sender.setImage(#imageLiteral(resourceName: "goal-btn"), for: .normal)
+        }
+    }
+    @IBAction func ReadTheBibleButton(_ sender: UIButton) {
+        if sender.currentImage == #imageLiteral(resourceName: "goal-btn") {
+            sender.setImage(#imageLiteral(resourceName: "goal-tick"), for: .normal)
+        } else {
+            sender.setImage(#imageLiteral(resourceName: "goal-btn"), for: .normal)
+        }
+    }
+    @IBAction func ListenASermonButton(_ sender: UIButton) {
+        if sender.currentImage == #imageLiteral(resourceName: "goal-btn") {
+            sender.setImage(#imageLiteral(resourceName: "goal-tick"), for: .normal)
+        } else {
+            sender.setImage(#imageLiteral(resourceName: "goal-btn"), for: .normal)
+        }
+    }
+    
+    // Confession View
+    
+    @IBAction func ConfessionButtonTapped(_sender: UIButton) {
+        performSegue(withIdentifier: "confessionSegue", sender: Any?.self)
+        print("Segue succesful")
+    }
+    
+    // Logout
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
         sender.pulsate()
