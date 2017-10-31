@@ -45,10 +45,7 @@ class AuthVC: UIViewController {
                 
             }
         }
-        
-    
     }
-    
 
     func viewStyle() {
         verifyTextField.layer.cornerRadius = verifyTextField.frame.size.height/2

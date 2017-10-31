@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 import AVFoundation
 import FirebaseAuth
 
@@ -15,8 +16,11 @@ class HomeVC: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var weekLabel: UILabel!
     @IBOutlet weak var logoutBtn: UIButton!
+    
     @IBOutlet weak var greetView: UIView!
     @IBOutlet weak var greetImage: UIImageView!
+    @IBOutlet weak var greetText: UILabel!
+    
     
     @IBOutlet weak var audioPlayerView: UIView!
     @IBOutlet weak var playPauseBtn: UIButton!
@@ -28,6 +32,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var confessionView: UIView!
     
     @IBOutlet weak var streakView: UIView!
+    
+    let appDel = UIApplication.shared.delegate as! AppDelegate
     
     var player: AVAudioPlayer = AVAudioPlayer()
     
@@ -45,9 +51,12 @@ class HomeVC: UIViewController {
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month, from: date)
         let week = calendar.component(.weekday, from: date)
+        let hour = calendar.component(.hour, from: date)
+
         
         var monthName: String
         var weekName: String
+        var greeting: String
         
         switch month {
         case 1:
@@ -97,11 +106,32 @@ class HomeVC: UIViewController {
             weekName = "TODAY"
         }
         
+        switch hour {
+        case 12,13,14,15:
+            greeting = "GOOD AFTERNOON"
+        case 16,17,18,19,20,21:
+            greeting = "GOOD EVENING"
+        case 22,23,24,00,0,1,2,3:
+            greeting = "GOOD NIGHT"
+        case 4,5,6,7,8,9,10,11:
+            greeting = "GOOD MORNING"
+        default:
+            greeting = "HAVE A GREAT DAY"
+        }
+        
+//        if hour == 12 || 13 || 14 || 15 {
+//            greetText.text = "Good Afternoon"
+//        }
+        
         dateLabel.text = "\(day) \(monthName)"
         weekLabel.text = "\(weekName)"
+        greetText.text = "\(greeting)"
+        
+        
         
         do {
             let audioPath = Bundle.main.path(forResource: "aug-ps-raj", ofType: "mp3")
+
             try player = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath!) as URL)
         } catch {
             // Catch the error
@@ -153,6 +183,37 @@ class HomeVC: UIViewController {
             print("This works")
             player.pause()
         }
+    }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//
+////        appDel.ref.child("sermonplayer").queryOrdered(byChild: "sermonurl").queryEqual(toValue : "Today")
+//
+//        appDel.ref.child("sermonplayer").child("sermonurl").observe(.value, with: { (snapshot) in
+//            if let value = snapshot.value {
+//                print("The Sermon URL Value is \(String(describing: value))")
+//
+//                self.SermonSuccess(value: value as! String)
+//
+//            } else {
+//                print ("Some error")
+//            }
+//
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+//    }
+
+    func SermonSuccess(value: String) {
+
+        do {
+//            let audioPath = Bundle.main.path(forResource: "aug-ps-raj", ofType: "mp3")
+            try player = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: value) as URL)
+        } catch {
+            // Catch the error
+        }
+
+
     }
     
     @IBAction func SermonSliderChanged(_ sender: AnyObject) {

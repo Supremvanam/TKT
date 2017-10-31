@@ -31,9 +31,9 @@ class LiveStreamVC: UIViewController {
         statusBarView.backgroundColor = statusBarColor
         view.addSubview(statusBarView)
         
-        appDel.ref.child("livetitle").observe(.value, with: { (snapshot) in
+        appDel.ref.child("livestream").child("livetitle").observe(.value, with: { (snapshot) in
             if let value = snapshot.value {
-                print("The Live URL Value is \(String(describing: value))")
+                print("Live Title is \(String(describing: value))")
                 self.liveStreamTitle.text = (value as! String)
             } else {
                 print ("Title value is not shown")
@@ -42,9 +42,9 @@ class LiveStreamVC: UIViewController {
             print(error.localizedDescription)
         }
         
-        appDel.ref.child("livedescription").observe(.value, with: { (snapshot) in
+        appDel.ref.child("livestream").child("livedescription").observe(.value, with: { (snapshot) in
             if let value = snapshot.value {
-                print("The Live URL Value is \(String(describing: value))")
+                print("Live Description is \(String(describing: value))")
                 self.liveStreamDescription.text = value as? String
             } else {
                 print ("Description value not available")
@@ -56,7 +56,7 @@ class LiveStreamVC: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         
-        appDel.ref.child("liveurl").observe(.value, with: { (snapshot) in
+        appDel.ref.child("livestream").child("liveurl").observe(.value, with: { (snapshot) in
             if let value = snapshot.value {
                 print("The Live URL Value is \(String(describing: value))")
                 
@@ -69,9 +69,6 @@ class LiveStreamVC: UIViewController {
         }) { (error) in
             print(error.localizedDescription)
         }
-        
-       
-    
     }
     
     
